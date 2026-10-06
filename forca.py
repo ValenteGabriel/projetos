@@ -25,3 +25,6 @@ else:
     tries = max_errors - errors
     print(f'A letra {guess} não está na palavra secreta. Tente novamente.')
     print(f'Tentativas restantes: {tries}/{max_errors}')
+
+
+    print('FIM DE JOGO')
