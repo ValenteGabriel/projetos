@@ -1,13 +1,11 @@
 
-secret_word = 'panda'
+secret_word = 'python'
 
 guessed_letters = []
 errors = 0
 max_errors = 3
 
-
 print('=== FORCA NO TERMINAL ===')
-
 
 while errors < max_errors:
 
@@ -33,10 +31,7 @@ while errors < max_errors:
         break
 else:
     print(f'\nTentativas esgotadas. Você perdeu!\nA palavra secreta era "{secret_word.upper()}".')
-    
-
-
-        
+            
 print('\nFIM DE JOGO')
 
 
