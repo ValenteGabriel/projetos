@@ -3,28 +3,40 @@ secret_word = 'panda'
 
 guessed_letters = []
 errors = 0
-max_errors = 6
+max_errors = 3
 
 
 print('=== FORCA NO TERMINAL ===')
 
 
-for letter in secret_word:
-    if letter in guessed_letters:
-        print(letter, end=' ')
+while errors < max_errors:
+
+    for letter in secret_word:
+        if letter in guessed_letters:
+            print(letter, end=' ')
+        else:
+            print('_', end=' ')
+
+    guess = input('\n\n\nDigite uma letra: ').lower()
+    guessed_letters.append(guess)
+
+    if guess in secret_word:
+        print(f'A letra {guess.upper()} está na palavra secreta. Parabéns!')
     else:
-        print('_', end=' ')
+        errors += 1
+        tries = max_errors - errors
+        print(f'A letra {guess} não está na palavra secreta. Tente novamente.')
+        print(f'Tentativas restantes: {tries}/{max_errors}')
 
-guess = input('\n\nDigite uma letra: ').lower()
-guessed_letters.append(guess)
-
-if guess in secret_word:
-    print(f'A letra {guess} está na palavra secreta. Parabéns!')
+    if all(letter in guessed_letters for letter in secret_word):        
+        print(f'\nA palavra secreta era "{secret_word.upper()}". Você acertou, parabéns!')
+        break
 else:
-    errors += 1
-    tries = max_errors - errors
-    print(f'A letra {guess} não está na palavra secreta. Tente novamente.')
-    print(f'Tentativas restantes: {tries}/{max_errors}')
+    print(f'\nTentativas esgotadas. Você perdeu!\nA palavra secreta era "{secret_word.upper()}".')
+    
 
 
-    print('FIM DE JOGO')
+        
+print('\nFIM DE JOGO')
+
+
